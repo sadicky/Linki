@@ -259,3 +259,146 @@ export async function switchDemoRole(role: UserRole) {
   revalidatePath("/", "layout");
   redirect(targetPath);
 }
+
+export interface UserProfileDetails {
+  profile: Profile;
+  restaurant?: Restaurant | null;
+  stats: {
+    ordersCount?: number;
+    menuItemsCount?: number;
+    deliveriesCount?: number;
+    totalUsersCount?: number;
+  };
+  email: string;
+}
+
+/**
+ * Récupère les données complètes du profil de l'utilisateur connecté
+ */
+export async function getMyProfileDetails(): Promise<UserProfileDetails | null> {
+  let user = await getCurrentUser();
+
+  if (!user) {
+    // Si aucun cookie n'est présent, fallback sur le client par défaut pour démo
+    user = demoStore.profiles[0];
+  }
+
+  if (!user) return null;
+
+  let restaurant: Restaurant | null = null;
+  const stats: UserProfileDetails["stats"] = {};
+
+  if (user.role === "restaurant") {
+    // Chercher son restaurant
+    restaurant = demoStore.restaurants.find((r) => r.owner_id === user.id) || null;
+    if (!restaurant) {
+      try {
+        const supabase = await createClient();
+        const { data } = await supabase.from("restaurants").select("*").eq("owner_id", user.id).single();
+        if (data) restaurant = data as Restaurant;
+      } catch {}
+    }
+    stats.menuItemsCount = demoStore.menuItems.filter((m) => m.restaurant_id === restaurant?.id).length;
+    stats.ordersCount = demoStore.orders.filter((o) => o.restaurant_id === restaurant?.id).length;
+  } else if (user.role === "client") {
+    stats.ordersCount = demoStore.orders.filter((o) => o.client_id === user.id).length;
+  } else if (user.role === "livreur") {
+    stats.deliveriesCount = demoStore.orders.filter((o) => o.livreur_id === user.id && o.statut === "livree").length;
+  } else if (user.role === "admin") {
+    stats.totalUsersCount = demoStore.profiles.length;
+  }
+
+  const roleEmails: Record<UserRole, string> = {
+    client: "client@linki.cd",
+    restaurant: "restaurant@linki.cd",
+    livreur: "livreur@linki.cd",
+    admin: "admin@linki.cd",
+  };
+
+  return {
+    profile: user,
+    restaurant,
+    stats,
+    email: roleEmails[user.role] || `${user.role}@linki.cd`,
+  };
+}
+
+/**
+ * Modification des données du profil par l'utilisateur connecté
+ */
+export async function updateUserProfile(data: {
+  full_name: string;
+  phone: string;
+  avatar_url?: string;
+  restaurant_nom?: string;
+  restaurant_description?: string;
+  restaurant_adresse?: string;
+}): Promise<ActionResponse<Profile>> {
+  const user = await getCurrentUser();
+  if (!user) {
+    return { success: false, error: "Vous devez être connecté pour modifier votre profil" };
+  }
+
+  if (!data.full_name || data.full_name.trim().length < 2) {
+    return { success: false, error: "Le nom complet doit comporter au moins 2 caractères" };
+  }
+
+  if (!data.phone || data.phone.trim().length < 6) {
+    return { success: false, error: "Numéro de téléphone invalide" };
+  }
+
+  const updatedProfile: Profile = {
+    ...user,
+    full_name: data.full_name.trim(),
+    phone: data.phone.trim(),
+    avatar_url: data.avatar_url?.trim() || user.avatar_url,
+    updated_at: new Date().toISOString(),
+  };
+
+  // Mettre à jour dans Supabase si configuré
+  try {
+    const supabase = await createClient();
+    await supabase.from("profiles").update({
+      full_name: updatedProfile.full_name,
+      phone: updatedProfile.phone,
+      avatar_url: updatedProfile.avatar_url,
+      updated_at: updatedProfile.updated_at,
+    }).eq("id", user.id);
+  } catch {}
+
+  // Mettre à jour dans le magasin local démo
+  const pIndex = demoStore.profiles.findIndex((p) => p.id === user.id);
+  if (pIndex !== -1) {
+    demoStore.profiles[pIndex] = updatedProfile;
+  }
+
+  // Si c'est un restaurateur et qu'il modifie les données de son restaurant
+  if (user.role === "restaurant" && (data.restaurant_nom || data.restaurant_description || data.restaurant_adresse)) {
+    const resto = demoStore.restaurants.find((r) => r.owner_id === user.id);
+    if (resto) {
+      if (data.restaurant_nom) resto.nom = data.restaurant_nom.trim();
+      if (data.restaurant_description) resto.description = data.restaurant_description.trim();
+      if (data.restaurant_adresse) resto.adresse = data.restaurant_adresse.trim();
+      resto.updated_at = new Date().toISOString();
+
+      try {
+        const supabase = await createClient();
+        await supabase.from("restaurants").update({
+          nom: resto.nom,
+          description: resto.description,
+          adresse: resto.adresse,
+          updated_at: resto.updated_at,
+        }).eq("id", resto.id);
+      } catch {}
+    }
+  }
+
+  revalidatePath("/", "layout");
+  revalidatePath("/profile");
+
+  return {
+    success: true,
+    data: updatedProfile,
+  };
+}
+

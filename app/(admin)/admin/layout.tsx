@@ -77,9 +77,12 @@ export default async function AdminLayout({
 
             {/* Profil & Déconnexion */}
             <div className="flex items-center gap-2 pl-2 border-l border-slate-100">
-              <span className="hidden md:inline text-xs font-medium text-slate-600">
-                {user?.full_name || "Admin"}
-              </span>
+              <Link
+                href="/profile"
+                className="text-xs font-semibold text-purple-700 hover:text-purple-900 bg-purple-50 hover:bg-purple-100 px-3 py-1.5 rounded-xl border border-purple-200 transition-colors"
+              >
+                Mon Profil
+              </Link>
               <form action={signOut}>
                 <button
                   type="submit"

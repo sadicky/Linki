@@ -92,12 +92,27 @@ export function ClientNavbar({ onOpenCart, userName, userRole, isLoggedIn }: Cli
                 <span>{totalCount > 0 ? formatPrice(total) : "Panier"}</span>
               </button>
 
-              {/* Utilisateur connecté & Déconnexion */}
+              {/* Utilisateur connecté, Lien Profil & Déconnexion */}
               <div className="flex items-center gap-1 pl-1 border-l border-slate-100 ml-1">
-                <div className="hidden lg:flex flex-col text-right pr-2">
-                  <span className="text-xs font-bold text-slate-900 leading-tight">{userName}</span>
-                  <span className="text-[10px] text-slate-500 capitalize">{userRole}</span>
-                </div>
+                <Link
+                  href="/profile"
+                  className="flex items-center gap-2 px-2.5 py-1.5 rounded-xl hover:bg-slate-50 transition-colors group cursor-pointer"
+                  title="Accéder à mon profil"
+                >
+                  <div className="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-700 flex items-center justify-center border border-emerald-100 group-hover:scale-105 transition-transform">
+                    <User className="w-4 h-4" />
+                  </div>
+                  <div className="hidden lg:flex flex-col text-left">
+                    <span className="text-xs font-bold text-slate-900 leading-tight group-hover:text-emerald-700 transition-colors">
+                      {userName}
+                    </span>
+                    <span className="text-[10px] text-slate-500 capitalize flex items-center gap-1">
+                      <span>{userRole}</span>
+                      <span className="text-emerald-600 font-semibold">• Profil</span>
+                    </span>
+                  </div>
+                </Link>
+
                 <button
                   onClick={() => signOut()}
                   title="Se déconnecter"
