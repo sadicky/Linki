@@ -307,3 +307,68 @@ export async function submitOrderReview(data: ReviewInput): Promise<ActionRespon
 
   return { success: true };
 }
+
+export interface FeaturedDish {
+  id: string;
+  restaurant_id: string;
+  restaurant_nom: string;
+  category_id?: string | null;
+  nom: string;
+  description: string | null;
+  prix: number;
+  image_url: string | null;
+  disponible: boolean;
+  tag?: string;
+}
+
+/**
+ * Récupère les plats congolais phares en vedette
+ */
+export async function getFeaturedDishes(): Promise<FeaturedDish[]> {
+  try {
+    const supabase = await createClient();
+    const { data: dishes } = await supabase
+      .from("menu_items")
+      .select("*, restaurants(nom)")
+      .eq("disponible", true)
+      .limit(6);
+    if (dishes && dishes.length > 0) {
+      return dishes.map((d: any) => ({
+        id: d.id,
+        restaurant_id: d.restaurant_id,
+        restaurant_nom: d.restaurants?.nom || "Restaurant Lubumbashi",
+        category_id: d.category_id,
+        nom: d.nom,
+        description: d.description,
+        prix: d.prix,
+        image_url: d.image_url,
+        disponible: d.disponible,
+        tag: d.nom.toLowerCase().includes("t-bone")
+          ? "Signature Katanga"
+          : d.nom.toLowerCase().includes("poisson")
+          ? "Fraîcheur Lac Moero"
+          : d.nom.toLowerCase().includes("poulet")
+          ? "Coup de Cœur"
+          : "Spécialité Lushoise",
+      }));
+    }
+  } catch {
+    // fallback local
+  }
+
+  return demoStore.menuItems.slice(0, 6).map((item) => {
+    const resto = demoStore.restaurants.find((r) => r.id === item.restaurant_id);
+    return {
+      ...item,
+      restaurant_nom: resto?.nom || "Restaurant Lubumbashi",
+      tag: item.nom.toLowerCase().includes("t-bone")
+        ? "Signature Katanga"
+        : item.nom.toLowerCase().includes("poisson")
+        ? "Fraîcheur Lac Moero"
+        : item.nom.toLowerCase().includes("poulet")
+        ? "Coup de Cœur"
+        : "Spécialité Lushoise",
+    };
+  });
+}
+
