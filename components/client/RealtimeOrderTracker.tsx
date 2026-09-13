@@ -115,9 +115,9 @@ export function RealtimeOrderTracker({
   return (
     <div className="max-w-5xl mx-auto space-y-8 pb-16">
       {/* Statut Hero Header */}
-      <div className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 shadow-sm">
+      <div className="bg-white border border-slate-100 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 shadow-sm">
         <div className="space-y-2">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-semibold">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-100 text-emerald-800 text-xs font-semibold">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
             <span>Suivi de commande en direct</span>
           </div>
@@ -141,7 +141,7 @@ export function RealtimeOrderTracker({
       </div>
 
       {/* Barre de progression des statuts */}
-      <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-2xs">
+      <div className="bg-white border border-slate-100 rounded-2xl p-6 shadow-2xs">
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
           {STATUS_STEPS.map((step, idx) => {
             const Icon = step.icon;
@@ -155,7 +155,7 @@ export function RealtimeOrderTracker({
                   isCurrent
                     ? "bg-emerald-50 border-emerald-500 text-emerald-800 font-bold shadow-xs scale-102"
                     : isCompleted
-                    ? "bg-slate-50 border-slate-200 text-slate-700"
+                    ? "bg-slate-50 border-slate-100 text-slate-700"
                     : "bg-white border-slate-100 text-slate-400 opacity-50"
                 }`}
               >
@@ -216,9 +216,9 @@ export function RealtimeOrderTracker({
         {/* Détails Restaurant & Livreur (4 colonnes) */}
         <div className="lg:col-span-4 space-y-4">
           {/* Restaurant */}
-          <div className="bg-white border border-slate-200 rounded-2xl p-5 space-y-3 shadow-2xs">
+          <div className="bg-white border border-slate-100 rounded-2xl p-5 space-y-3 shadow-2xs">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center shrink-0 border border-amber-200">
+              <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center shrink-0 border border-amber-100">
                 <Store className="w-5 h-5" />
               </div>
               <div>
@@ -229,9 +229,9 @@ export function RealtimeOrderTracker({
           </div>
 
           {/* Livreur assigné */}
-          <div className="bg-white border border-slate-200 rounded-2xl p-5 space-y-3 shadow-2xs">
+          <div className="bg-white border border-slate-100 rounded-2xl p-5 space-y-3 shadow-2xs">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center shrink-0 border border-sky-200">
+              <div className="w-10 h-10 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center shrink-0 border border-sky-100">
                 <Bike className="w-5 h-5" />
               </div>
               <div>
@@ -249,7 +249,7 @@ export function RealtimeOrderTracker({
           </div>
 
           {/* Code PIN Sécurisé style UberEats */}
-          <div className="bg-emerald-50 border border-emerald-200 rounded-2xl p-5 space-y-2 shadow-2xs">
+          <div className="bg-emerald-50/70 border border-emerald-100 rounded-2xl p-5 space-y-2 shadow-2xs">
             <div className="flex items-center justify-between">
               <span className="text-[10px] text-emerald-800 font-bold uppercase tracking-wider">
                 Code PIN de remise sécurisé
@@ -267,7 +267,7 @@ export function RealtimeOrderTracker({
           </div>
 
           {/* Adresse de livraison & Instructions */}
-          <div className="bg-white border border-slate-200 rounded-2xl p-5 space-y-2 text-xs shadow-2xs">
+          <div className="bg-white border border-slate-100 rounded-2xl p-5 space-y-2 text-xs shadow-2xs">
             <div>
               <span className="text-slate-500 font-medium">Adresse de livraison</span>
               <p className="text-slate-900 font-semibold mt-0.5">{order.adresse_livraison}</p>
@@ -345,7 +345,7 @@ export function RealtimeOrderTracker({
                   placeholder="Partagez vos impressions sur la cuisson, le goût et la livraison..."
                   value={reviewComment}
                   onChange={(e) => setReviewComment(e.target.value)}
-                  className="w-full bg-white border border-slate-200 rounded-xl p-3 text-xs text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 transition-all"
+                  className="w-full bg-white border border-slate-100 rounded-xl p-3 text-xs text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 transition-all shadow-2xs"
                 />
               </div>
 

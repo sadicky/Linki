@@ -12,6 +12,7 @@ export default async function ClientLayout({
     <ClientLayoutShell
       userRole={user?.role || "client"}
       userName={user?.full_name}
+      isLoggedIn={Boolean(user)}
     >
       {children}
     </ClientLayoutShell>

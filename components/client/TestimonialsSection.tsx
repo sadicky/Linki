@@ -40,7 +40,7 @@ export function TestimonialsSection() {
   return (
     <section className="space-y-6">
       <div className="text-center max-w-xl mx-auto space-y-2">
-        <span className="text-xs font-bold text-amber-600 bg-amber-50 px-2.5 py-1 rounded-full border border-amber-200">
+        <span className="text-xs font-bold text-amber-600 bg-amber-50 px-2.5 py-1 rounded-full border border-amber-100">
           Témoignages Gourmands
         </span>
         <h2 className="text-2xl font-black text-slate-900">
@@ -55,7 +55,7 @@ export function TestimonialsSection() {
         {reviews.map((r) => (
           <div
             key={r.name}
-            className="bg-white rounded-2xl p-6 border border-slate-200/90 shadow-xs flex flex-col justify-between space-y-4 hover:border-emerald-300 transition-all"
+            className="bg-white rounded-2xl p-6 border border-slate-100 shadow-2xs flex flex-col justify-between space-y-4 hover:border-emerald-300 hover:shadow-xs transition-all"
           >
             <div className="space-y-3">
               {/* Étoiles et quote */}
@@ -85,7 +85,7 @@ export function TestimonialsSection() {
                 <img
                   src={r.avatar}
                   alt={r.name}
-                  className="w-10 h-10 rounded-full object-cover border border-slate-200"
+                  className="w-10 h-10 rounded-full object-cover border border-slate-100"
                 />
                 <div>
                   <div className="text-xs font-bold text-slate-900 flex items-center gap-1">

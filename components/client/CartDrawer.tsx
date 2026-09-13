@@ -35,13 +35,13 @@ export function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
       />
 
       {/* Drawer panel */}
-      <div className="relative w-full max-w-md bg-white border-l border-slate-200 h-full flex flex-col z-10 shadow-2xl animate-in slide-in-from-right duration-300">
+      <div className="relative w-full max-w-md bg-white border-l border-slate-100 h-full flex flex-col z-10 shadow-2xl animate-in slide-in-from-right duration-300">
         {/* Header */}
         <div className="p-4 border-b border-slate-100 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <ShoppingBag className="w-5 h-5 text-emerald-600" />
             <h2 className="text-base font-bold text-slate-900">Mon Panier</h2>
-            <span className="text-xs px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 font-semibold">
+            <span className="text-xs px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-100 font-semibold">
               {totalCount}
             </span>
           </div>
@@ -109,7 +109,7 @@ export function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
 
                   {/* Quantity controls */}
                   <div className="flex items-center justify-between mt-2">
-                    <div className="flex items-center gap-2 bg-slate-100 rounded-lg p-1 border border-slate-200/80">
+                    <div className="flex items-center gap-2 bg-slate-100 rounded-lg p-1 border border-slate-100">
                       <button
                         onClick={() => updateQuantity(item.dish.id, item.quantity - 1)}
                         className="w-5 h-5 rounded flex items-center justify-center text-slate-600 hover:text-slate-900 hover:bg-white transition-colors cursor-pointer"

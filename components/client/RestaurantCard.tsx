@@ -12,15 +12,15 @@ export function RestaurantCard({ restaurant }: RestaurantCardProps) {
   return (
     <Link
       href={`/restaurants/${restaurant.id}`}
-      className="group bg-white rounded-2xl overflow-hidden border border-slate-200 hover:border-emerald-300 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg shadow-xs flex flex-col"
+      className="group bg-white rounded-3xl overflow-hidden border border-slate-100 hover:border-emerald-300 transition-all duration-300 hover:-translate-y-1 hover:shadow-md shadow-2xs flex flex-col"
     >
-      {/* Image avec zoom au survol */}
-      <div className="relative h-48 w-full bg-slate-100 overflow-hidden">
+      {/* Image avec format carré parfait UberEats */}
+      <div className="relative w-full aspect-square bg-slate-50 overflow-hidden">
         {restaurant.image_url ? (
           <img
             src={restaurant.image_url}
             alt={restaurant.nom}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            className="w-full h-full object-cover group-hover:scale-104 transition-transform duration-500"
           />
         ) : (
           <div className="w-full h-full flex items-center justify-center text-slate-400 text-xs">
@@ -29,14 +29,14 @@ export function RestaurantCard({ restaurant }: RestaurantCardProps) {
         )}
 
         {/* Badge note moyenne */}
-        <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-xs px-2.5 py-1 rounded-full text-xs font-bold text-amber-600 flex items-center gap-1 border border-slate-200/80 shadow-xs">
-          <Star className="w-3.5 h-3.5 fill-amber-500 text-amber-500" />
+        <div className="absolute top-3 right-3 bg-white/95 backdrop-blur-xs px-2.5 py-1 rounded-full text-xs font-bold text-slate-900 flex items-center gap-1 border border-slate-100 shadow-2xs">
+          <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
           <span>{restaurant.note_moyenne.toFixed(1)}</span>
         </div>
 
         {/* Badge statut */}
-        <div className="absolute bottom-3 left-3 bg-emerald-600/90 backdrop-blur-xs px-2.5 py-1 rounded-lg text-[11px] font-bold text-white shadow-xs">
-          {restaurant.statut === "ouvert" ? "Ouvert maintenant" : "Fermé"}
+        <div className="absolute bottom-3 left-3 bg-emerald-600/95 backdrop-blur-xs px-2.5 py-1 rounded-lg text-[11px] font-bold text-white shadow-xs">
+          {restaurant.statut === "ouvert" ? "Ouvert" : "Fermé"}
         </div>
       </div>
 

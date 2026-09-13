@@ -8,13 +8,13 @@ export function PartnershipBanner() {
   return (
     <section className="grid grid-cols-1 md:grid-cols-2 gap-6">
       {/* Carte Restaurateurs (Clean White Card) */}
-      <div className="bg-white rounded-3xl p-7 sm:p-8 border border-slate-200 hover:border-emerald-400 hover:shadow-lg transition-all duration-300 flex flex-col justify-between space-y-6 shadow-xs group">
+      <div className="bg-white rounded-3xl p-7 sm:p-8 border border-slate-100 hover:border-emerald-400 hover:shadow-lg transition-all duration-300 flex flex-col justify-between space-y-6 shadow-xs group">
         <div className="space-y-4">
-          <div className="w-12 h-12 rounded-2xl bg-emerald-100 border border-emerald-200 flex items-center justify-center text-emerald-700 shadow-2xs">
+          <div className="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-700 shadow-2xs">
             <Store className="w-6 h-6" />
           </div>
           <div>
-            <span className="inline-block text-[11px] font-black uppercase tracking-wider text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">
+            <span className="inline-block text-[11px] font-black uppercase tracking-wider text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-100">
               Pour les Restaurateurs de Lubumbashi
             </span>
             <h3 className="text-xl font-black text-slate-900 leading-snug mt-2 group-hover:text-emerald-700 transition-colors">
@@ -48,13 +48,13 @@ export function PartnershipBanner() {
       </div>
 
       {/* Carte Livreurs (Clean White Card) */}
-      <div className="bg-white rounded-3xl p-7 sm:p-8 border border-slate-200 hover:border-amber-400 hover:shadow-lg transition-all duration-300 flex flex-col justify-between space-y-6 shadow-xs group">
+      <div className="bg-white rounded-3xl p-7 sm:p-8 border border-slate-100 hover:border-amber-400 hover:shadow-lg transition-all duration-300 flex flex-col justify-between space-y-6 shadow-xs group">
         <div className="space-y-4">
-          <div className="w-12 h-12 rounded-2xl bg-amber-100 border border-amber-200 flex items-center justify-center text-amber-700 shadow-2xs">
+          <div className="w-12 h-12 rounded-2xl bg-amber-50 border border-amber-100 flex items-center justify-center text-amber-700 shadow-2xs">
             <Bike className="w-6 h-6" />
           </div>
           <div>
-            <span className="inline-block text-[11px] font-black uppercase tracking-wider text-amber-700 bg-amber-50 px-2.5 py-0.5 rounded-full border border-amber-200">
+            <span className="inline-block text-[11px] font-black uppercase tracking-wider text-amber-700 bg-amber-50 px-2.5 py-0.5 rounded-full border border-amber-100">
               Pour les Motards & Coursiers
             </span>
             <h3 className="text-xl font-black text-slate-900 leading-snug mt-2 group-hover:text-amber-700 transition-colors">

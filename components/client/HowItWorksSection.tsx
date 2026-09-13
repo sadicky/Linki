@@ -29,9 +29,9 @@ export function HowItWorksSection() {
   ];
 
   return (
-    <section className="bg-white rounded-3xl p-8 sm:p-12 border border-slate-200/90 shadow-xs space-y-10">
+    <section className="bg-white rounded-3xl p-8 sm:p-12 border border-slate-100 shadow-xs space-y-10">
       <div className="text-center max-w-2xl mx-auto space-y-3">
-        <span className="text-xs font-black uppercase tracking-wider text-emerald-800 bg-emerald-100/70 px-3 py-1 rounded-full border border-emerald-200">
+        <span className="text-xs font-black uppercase tracking-wider text-emerald-800 bg-emerald-100/70 px-3 py-1 rounded-full border border-emerald-100">
           Simplicité & Sécurité
         </span>
         <h2 className="text-2xl sm:text-3xl font-black text-slate-900">
@@ -48,7 +48,7 @@ export function HowItWorksSection() {
           return (
             <div
               key={item.step}
-              className="relative bg-slate-50/80 hover:bg-white rounded-2xl p-6 border border-slate-200/80 hover:border-emerald-300 hover:shadow-md transition-all duration-300 space-y-4 group"
+              className="relative bg-slate-50/80 hover:bg-white rounded-2xl p-6 border border-slate-100 hover:border-emerald-300 hover:shadow-md transition-all duration-300 space-y-4 group shadow-2xs"
             >
               <div className="flex items-center justify-between">
                 <div className={`w-12 h-12 rounded-xl flex items-center justify-center border shadow-2xs ${item.color}`}>

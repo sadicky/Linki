@@ -18,7 +18,7 @@ export function HomeHeroSection() {
   const currentCommuneInfo = LUBUMBASHI_COMMUNES.find((c) => c.name === selectedCommune) || LUBUMBASHI_COMMUNES[0];
 
   return (
-    <section className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-emerald-50/70 via-white to-slate-50 border border-slate-200/90 shadow-xs p-6 sm:p-10 lg:p-12">
+    <section className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-emerald-50/70 via-white to-slate-50 border border-slate-100 shadow-2xs p-6 sm:p-10 lg:p-12">
       {/* Halos doux en arrière-plan */}
       <div className="absolute -top-24 -left-24 w-96 h-96 bg-emerald-100/40 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute top-1/2 -right-24 w-96 h-96 bg-amber-100/30 rounded-full blur-3xl pointer-events-none" />
@@ -27,7 +27,7 @@ export function HomeHeroSection() {
         {/* Colonne Gauche : Titre, Localisation & CTA */}
         <div className="lg:col-span-7 space-y-6">
           {/* Badge en-tête UberEats style */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-100/80 border border-emerald-200 text-emerald-800 text-xs font-semibold shadow-2xs">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-100/80 border border-emerald-100 text-emerald-800 text-xs font-semibold shadow-2xs">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-600"></span>
@@ -50,14 +50,14 @@ export function HomeHeroSection() {
           </p>
 
           {/* Sélecteur de livraison express par Commune (Card Blanche Lumineuse) */}
-          <div className="bg-white p-3 rounded-2xl border border-slate-200 shadow-md max-w-xl space-y-2">
+          <div className="bg-white p-3.5 rounded-2xl border border-slate-100 shadow-sm max-w-xl space-y-2">
             <div className="flex flex-col sm:flex-row gap-2.5">
               <div className="relative flex-1 flex items-center">
                 <MapPin className="w-4 h-4 text-emerald-600 absolute left-3.5 pointer-events-none" />
                 <select
                   value={selectedCommune}
                   onChange={(e) => setSelectedCommune(e.target.value)}
-                  className="w-full bg-slate-50 text-xs font-semibold text-slate-900 rounded-xl pl-10 pr-9 py-3 border border-slate-200 focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 transition-all appearance-none cursor-pointer"
+                  className="w-full bg-slate-50 text-xs font-semibold text-slate-900 rounded-xl pl-10 pr-9 py-3 border border-slate-100 focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 transition-all appearance-none cursor-pointer"
                 >
                   {LUBUMBASHI_COMMUNES.map((commune) => (
                     <option key={commune.name} value={commune.name} className="bg-white text-slate-900">
@@ -92,22 +92,22 @@ export function HomeHeroSection() {
 
           {/* Badges de confiance (Cards Blanches Claires) */}
           <div className="pt-1 flex flex-wrap gap-2.5 text-xs text-slate-700 font-medium">
-            <div className="flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-xl border border-slate-200 shadow-2xs">
+            <div className="flex items-center gap-1.5 bg-white px-3.5 py-2 rounded-xl border border-slate-100 shadow-2xs">
               <Clock className="w-3.5 h-3.5 text-emerald-600" />
               <span>Moins de 30 min chrono</span>
             </div>
-            <div className="flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-xl border border-slate-200 shadow-2xs">
+            <div className="flex items-center gap-1.5 bg-white px-3.5 py-2 rounded-xl border border-slate-100 shadow-2xs">
               <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
               <span>100% Mobile Money RDC</span>
             </div>
-            <div className="flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-xl border border-slate-200 shadow-2xs">
+            <div className="flex items-center gap-1.5 bg-white px-3.5 py-2 rounded-xl border border-slate-100 shadow-2xs">
               <Zap className="w-3.5 h-3.5 text-amber-500" />
               <span>Code PIN sécurisé à 4 chiffres</span>
             </div>
           </div>
 
           {/* Statistiques clés */}
-          <div className="pt-4 border-t border-slate-200/80 grid grid-cols-3 gap-4 text-left">
+          <div className="pt-4 border-t border-slate-100 grid grid-cols-3 gap-4 text-left">
             <div>
               <div className="text-xl sm:text-2xl font-black text-slate-900">+15 000</div>
               <div className="text-[11px] text-slate-500 font-medium">Repas livrés à Lubum</div>
@@ -156,8 +156,8 @@ export function HomeHeroSection() {
             </div>
 
             {/* Badge Flottant 1 : Note et Avis Lushois (Carte Blanche) */}
-            <div className="absolute -top-3 -left-3 sm:-top-4 sm:-left-4 bg-white text-slate-900 px-3.5 py-2 rounded-2xl border border-slate-200/90 shadow-lg flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-xl bg-amber-100 flex items-center justify-center text-amber-600 font-bold shrink-0">
+            <div className="absolute -top-3 -left-3 sm:-top-4 sm:-left-4 bg-white text-slate-900 px-3.5 py-2 rounded-2xl border border-slate-100 shadow-md flex items-center gap-2.5">
+              <div className="w-9 h-9 rounded-xl bg-amber-50 flex items-center justify-center text-amber-600 font-bold shrink-0">
                 <Star className="w-4 h-4 fill-amber-500 text-amber-500" />
               </div>
               <div>
@@ -172,8 +172,8 @@ export function HomeHeroSection() {
             </div>
 
             {/* Badge Flottant 2 : Suivi en direct du motard (Carte Blanche) */}
-            <div className="absolute -bottom-3 -right-3 sm:-bottom-4 sm:-right-4 bg-white text-slate-900 px-4 py-2.5 rounded-2xl border border-emerald-200 shadow-lg flex items-center gap-3">
-              <div className="relative w-9 h-9 rounded-xl bg-emerald-100 flex items-center justify-center text-emerald-700 shrink-0">
+            <div className="absolute -bottom-3 -right-3 sm:-bottom-4 sm:-right-4 bg-white text-slate-900 px-4 py-2.5 rounded-2xl border border-emerald-100 shadow-md flex items-center gap-3">
+              <div className="relative w-9 h-9 rounded-xl bg-emerald-50 flex items-center justify-center text-emerald-700 shrink-0">
                 <Zap className="w-4 h-4 text-emerald-600 fill-emerald-600" />
                 <span className="absolute -top-1 -right-1 flex h-2.5 w-2.5">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>

@@ -6,7 +6,7 @@ import { UtensilsCrossed, Phone, Mail, MapPin, Heart, ShieldCheck } from "lucide
 
 export function FooterSection() {
   return (
-    <footer className="mt-16 bg-white border-t border-slate-200/80 pt-12 pb-8 rounded-3xl p-8 sm:p-12 shadow-xs">
+    <footer className="mt-16 bg-white border border-slate-100 pt-12 pb-8 rounded-3xl p-8 sm:p-12 shadow-xs">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 pb-10 border-b border-slate-100">
         {/* Colonne 1 : Brand & Mission */}
         <div className="lg:col-span-2 space-y-4">
@@ -98,16 +98,16 @@ export function FooterSection() {
           </p>
 
           <div className="grid grid-cols-2 gap-2 text-[11px] font-bold">
-            <div className="bg-slate-50 border border-slate-200 rounded-lg p-2 text-center text-red-600">
+            <div className="bg-slate-50 border border-slate-100 rounded-lg p-2 text-center text-red-600 shadow-2xs">
               🔴 M-Pesa
             </div>
-            <div className="bg-slate-50 border border-slate-200 rounded-lg p-2 text-center text-red-500">
+            <div className="bg-slate-50 border border-slate-100 rounded-lg p-2 text-center text-red-500 shadow-2xs">
               🔴 Airtel Money
             </div>
-            <div className="bg-slate-50 border border-slate-200 rounded-lg p-2 text-center text-orange-600">
+            <div className="bg-slate-50 border border-slate-100 rounded-lg p-2 text-center text-orange-600 shadow-2xs">
               🟠 Orange Money
             </div>
-            <div className="bg-slate-50 border border-slate-200 rounded-lg p-2 text-center text-blue-600">
+            <div className="bg-slate-50 border border-slate-100 rounded-lg p-2 text-center text-blue-600 shadow-2xs">
               🔵 Afrimoney
             </div>
           </div>

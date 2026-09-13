@@ -1,9 +1,16 @@
 import Link from "next/link";
+import { redirect } from "next/navigation";
+import { getCurrentUser } from "@/lib/actions/auth.actions";
 import { getClientOrders } from "@/lib/actions/client.actions";
 import { formatPrice, formatDate } from "@/lib/utils";
 import { ReceiptText, ArrowRight, Store, Clock } from "lucide-react";
 
 export default async function ClientOrdersHistoryPage() {
+  const user = await getCurrentUser();
+  if (!user) {
+    redirect("/login?redirect=/orders");
+  }
+
   const orders = await getClientOrders();
 
   return (
@@ -19,7 +26,7 @@ export default async function ClientOrdersHistoryPage() {
       </div>
 
       {orders.length === 0 ? (
-        <div className="bg-white border border-slate-200 rounded-3xl p-12 text-center space-y-4 shadow-sm">
+        <div className="bg-white border border-slate-100 rounded-3xl p-12 text-center space-y-4 shadow-sm">
           <div className="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto text-slate-400">
             <ReceiptText className="w-8 h-8" />
           </div>
@@ -39,7 +46,7 @@ export default async function ClientOrdersHistoryPage() {
           {orders.map((order) => (
             <div
               key={order.id}
-              className="bg-white border border-slate-200 hover:border-emerald-300 rounded-2xl p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 transition-all shadow-xs"
+              className="bg-white border border-slate-100 hover:border-emerald-300 rounded-2xl p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 transition-all shadow-2xs hover:shadow-xs"
             >
               <div className="space-y-2">
                 <div className="flex items-center gap-3">
@@ -84,7 +91,7 @@ export default async function ClientOrdersHistoryPage() {
 
                 <Link
                   href={`/orders/${order.id}`}
-                  className="flex items-center gap-1 text-xs font-bold text-slate-700 bg-slate-100 hover:bg-emerald-50 hover:text-emerald-700 hover:border-emerald-200 px-3 py-1.5 rounded-xl border border-slate-200 transition-colors"
+                  className="flex items-center gap-1 text-xs font-bold text-slate-700 bg-slate-50 hover:bg-emerald-50 hover:text-emerald-700 hover:border-emerald-200 px-3 py-1.5 rounded-xl border border-slate-100 transition-colors"
                 >
                   <span>Suivi en direct</span>
                   <ArrowRight className="w-3.5 h-3.5" />

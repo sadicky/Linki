@@ -96,7 +96,7 @@ export function RestaurantFilterableList({ initialRestaurants }: RestaurantFilte
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Rechercher T-Bone, Bukari, Golf..."
-            className="w-full bg-white border border-slate-200 rounded-xl pl-10 pr-4 py-2.5 text-xs text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 shadow-2xs transition-all"
+            className="w-full bg-white border border-slate-100 rounded-xl pl-10 pr-4 py-2.5 text-xs text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 shadow-2xs transition-all"
           />
           {searchQuery && (
             <button
@@ -122,7 +122,7 @@ export function RestaurantFilterableList({ initialRestaurants }: RestaurantFilte
               className={`px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap transition-all cursor-pointer flex items-center gap-1.5 ${
                 isSelected
                   ? "bg-emerald-600 text-white shadow-xs"
-                  : "bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 hover:border-slate-300"
+                  : "bg-white text-slate-700 border border-slate-100 hover:bg-slate-50 hover:border-emerald-200 shadow-2xs"
               }`}
             >
               {cat.icon && <cat.icon className={`w-3.5 h-3.5 ${isSelected ? "text-amber-200" : "text-amber-500"}`} />}
@@ -140,7 +140,7 @@ export function RestaurantFilterableList({ initialRestaurants }: RestaurantFilte
           ))}
         </div>
       ) : (
-        <div className="bg-white rounded-2xl border border-slate-200 p-10 text-center space-y-3">
+        <div className="bg-white rounded-3xl border border-slate-100 p-10 text-center space-y-3 shadow-sm">
           <div className="w-12 h-12 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center mx-auto">
             <Search className="w-6 h-6" />
           </div>

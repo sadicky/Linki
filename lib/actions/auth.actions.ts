@@ -32,9 +32,12 @@ export async function getCurrentUser(): Promise<Profile | null> {
     // Si Supabase offline ou mock, fallback sur le magasin démo
   }
 
-  const targetId = demoUserId || demoStore.activeUserId;
-  const profile = demoStore.profiles.find((p) => p.id === targetId) || demoStore.profiles[0];
-  return profile;
+  if (demoUserId) {
+    const profile = demoStore.profiles.find((p) => p.id === demoUserId);
+    if (profile) return profile;
+  }
+
+  return null;
 }
 
 /**

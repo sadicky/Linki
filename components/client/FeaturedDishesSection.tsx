@@ -69,15 +69,15 @@ export function FeaturedDishesSection({ dishes }: FeaturedDishesSectionProps) {
           return (
             <div
               key={dish.id}
-              className="group bg-white rounded-2xl overflow-hidden border border-slate-200/90 hover:border-emerald-300 hover:shadow-lg transition-all duration-300 flex flex-col justify-between"
+              className="group bg-white rounded-3xl overflow-hidden border border-slate-100 hover:border-emerald-300 hover:shadow-md transition-all duration-300 shadow-2xs flex flex-col justify-between"
             >
-              {/* Image avec zoom */}
-              <div className="relative h-44 w-full bg-slate-100 overflow-hidden">
+              {/* Image carrée parfaite UberEats */}
+              <div className="relative w-full aspect-square bg-slate-50 overflow-hidden">
                 {dish.image_url ? (
                   <img
                     src={dish.image_url}
                     alt={dish.nom}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover group-hover:scale-104 transition-transform duration-500"
                   />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center text-slate-400 text-xs">
@@ -86,13 +86,13 @@ export function FeaturedDishesSection({ dishes }: FeaturedDishesSectionProps) {
                 )}
 
                 {/* Tag Spécialité (Light & Clean) */}
-                <div className="absolute top-3 left-3 bg-white/95 backdrop-blur-md text-emerald-800 text-[11px] font-bold px-2.5 py-1 rounded-lg border border-emerald-200/90 shadow-xs flex items-center gap-1">
+                <div className="absolute top-3 left-3 bg-white/95 backdrop-blur-md text-emerald-800 text-[11px] font-bold px-2.5 py-1 rounded-lg border border-emerald-100 shadow-2xs flex items-center gap-1">
                   <Sparkles className="w-3 h-3 text-amber-500" />
                   <span>{dish.tag || "Spécialité Lushoise"}</span>
                 </div>
 
                 {/* Badge Restaurant */}
-                <div className="absolute bottom-3 left-3 bg-white/95 backdrop-blur-xs text-slate-800 text-[11px] font-semibold px-2.5 py-1 rounded-md shadow-xs border border-slate-200/60 max-w-[85%] truncate">
+                <div className="absolute bottom-3 left-3 bg-white/95 backdrop-blur-xs text-slate-800 text-[11px] font-semibold px-2.5 py-1 rounded-md shadow-2xs border border-slate-100 max-w-[85%] truncate">
                   📍 {dish.restaurant_nom}
                 </div>
               </div>

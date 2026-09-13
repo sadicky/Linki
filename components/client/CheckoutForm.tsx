@@ -105,7 +105,7 @@ export function CheckoutForm() {
 
   if (items.length === 0 && ussdStep === "idle") {
     return (
-      <div className="bg-white border border-slate-200 rounded-3xl p-12 text-center max-w-lg mx-auto space-y-4 shadow-sm">
+      <div className="bg-white border border-slate-100 rounded-3xl p-12 text-center max-w-lg mx-auto space-y-4 shadow-sm">
         <div className="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto text-slate-400">
           <Smartphone className="w-8 h-8" />
         </div>
@@ -221,7 +221,7 @@ export function CheckoutForm() {
         )}
 
         {/* 1. Adresse de livraison à Lubumbashi */}
-        <div className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-7 shadow-xs space-y-5">
+        <div className="bg-white border border-slate-100 rounded-3xl p-6 sm:p-7 shadow-xs space-y-5">
           <div className="flex items-center gap-2.5 pb-4 border-b border-slate-100">
             <div className="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-xs">
               1
@@ -240,7 +240,7 @@ export function CheckoutForm() {
               <select
                 value={commune}
                 onChange={(e) => setCommune(e.target.value)}
-                className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 font-medium focus:ring-2 focus:ring-emerald-500 focus:outline-hidden"
+                className="w-full bg-slate-50 border border-slate-100 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 font-medium focus:ring-2 focus:ring-emerald-500 focus:outline-hidden"
               >
                 {LUBUMBASHI_COMMUNES.map((c) => (
                   <option key={c} value={c}>
@@ -262,7 +262,7 @@ export function CheckoutForm() {
                   onChange={(e) => setAddressDetails(e.target.value)}
                   placeholder="Ex: Boulevard Msiri, près du Carrefour"
                   required
-                  className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-10 pr-3.5 py-2.5 text-xs text-slate-900 font-medium focus:ring-2 focus:ring-emerald-500 focus:outline-hidden"
+                  className="w-full bg-slate-50 border border-slate-100 rounded-xl pl-10 pr-3.5 py-2.5 text-xs text-slate-900 font-medium focus:ring-2 focus:ring-emerald-500 focus:outline-hidden"
                 />
               </div>
             </div>
@@ -282,13 +282,13 @@ export function CheckoutForm() {
               value={instructions}
               onChange={(e) => setInstructions(e.target.value)}
               placeholder="Ex: Portail blanc en face de l'Hôtel Karavia, appeler à la barrière du Golf"
-              className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 placeholder:text-slate-400 focus:ring-2 focus:ring-emerald-500 focus:outline-hidden"
+              className="w-full bg-slate-50 border border-slate-100 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 placeholder:text-slate-400 focus:ring-2 focus:ring-emerald-500 focus:outline-hidden"
             />
           </div>
         </div>
 
         {/* 2. Pourboire au coursier (UberEats Feature) */}
-        <div className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-7 shadow-xs space-y-4">
+        <div className="bg-white border border-slate-100 rounded-3xl p-6 sm:p-7 shadow-xs space-y-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <HeartHandshake className="w-5 h-5 text-emerald-600" />
@@ -297,7 +297,7 @@ export function CheckoutForm() {
                 <p className="text-[11px] text-slate-500">100% du pourboire est directement reversé au livreur</p>
               </div>
             </div>
-            <span className="text-xs font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-1 rounded-full">
+            <span className="text-xs font-bold text-emerald-700 bg-emerald-50 border border-emerald-100 px-2.5 py-1 rounded-full">
               +{formatPrice(tip)}
             </span>
           </div>
@@ -311,7 +311,7 @@ export function CheckoutForm() {
                 className={`py-2 px-3 rounded-xl border text-xs font-bold transition-all cursor-pointer ${
                   tip === amount
                     ? "bg-emerald-600 text-white border-emerald-600 shadow-xs"
-                    : "bg-slate-50 text-slate-700 border-slate-200 hover:border-slate-300"
+                    : "bg-slate-50 text-slate-700 border-slate-100 hover:border-emerald-200"
                 }`}
               >
                 {amount === 0 ? "Aucun" : formatPrice(amount)}
@@ -321,7 +321,7 @@ export function CheckoutForm() {
         </div>
 
         {/* 3. Paiement Mobile Money RDCongo */}
-        <div className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-7 shadow-xs space-y-6">
+        <div className="bg-white border border-slate-100 rounded-3xl p-6 sm:p-7 shadow-xs space-y-6">
           <div className="flex items-center gap-2.5 pb-4 border-b border-slate-100">
             <div className="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-xs">
               2
@@ -344,7 +344,7 @@ export function CheckoutForm() {
                   className={`relative p-3.5 rounded-2xl border text-left transition-all cursor-pointer flex flex-col justify-between min-h-[95px] ${
                     isSelected
                       ? `${op.bgLight} ${op.borderColor} ring-2 ring-emerald-500/20 shadow-xs`
-                      : "bg-slate-50 border-slate-200 hover:bg-slate-100/70"
+                      : "bg-slate-50 border-slate-100 hover:bg-slate-100/70"
                   }`}
                 >
                   <div className="flex items-center justify-between w-full">
@@ -365,13 +365,13 @@ export function CheckoutForm() {
           </div>
 
           {/* Saisie du Numéro de téléphone congolais */}
-          <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-3">
+          <div className="p-4 rounded-2xl bg-slate-50 border border-slate-100 space-y-3">
             <div className="flex items-center justify-between">
               <label className="text-xs font-semibold text-slate-800 flex items-center gap-1.5">
                 <Smartphone className="w-4 h-4 text-emerald-600" />
                 Numéro {currentOp.name} pour le débit
               </label>
-              <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-white border border-slate-200 text-slate-600">
+              <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-white border border-slate-100 text-slate-600">
                 Auto-détection RDC
               </span>
             </div>
@@ -382,7 +382,7 @@ export function CheckoutForm() {
               onChange={(e) => handlePhoneChange(e.target.value)}
               placeholder="+243 82 000 0000"
               required
-              className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm font-mono font-bold text-slate-900 focus:ring-2 focus:ring-emerald-500 focus:outline-hidden"
+              className="w-full bg-white border border-slate-100 rounded-xl px-4 py-3 text-sm font-mono font-bold text-slate-900 focus:ring-2 focus:ring-emerald-500 focus:outline-hidden"
             />
 
             <p className="text-[11px] text-slate-500 flex items-center gap-1">
@@ -415,9 +415,9 @@ export function CheckoutForm() {
 
       {/* Colonne Récapitulatif Panier & UberEats Assurance */}
       <div className="lg:col-span-5 space-y-6">
-        <div className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-7 shadow-xs space-y-5 sticky top-20">
+        <div className="bg-white border border-slate-100 rounded-3xl p-6 sm:p-7 shadow-xs space-y-5 sticky top-20">
           <div className="border-b border-slate-100 pb-4">
-            <span className="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full uppercase tracking-wider">
+            <span className="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full uppercase tracking-wider border border-emerald-100">
               {restaurantName || "Restaurant Partenaire"}
             </span>
             <h3 className="text-base font-bold text-slate-900 mt-2">Récapitulatif de commande</h3>
@@ -455,14 +455,14 @@ export function CheckoutForm() {
                 <span>+{formatPrice(tip)}</span>
               </div>
             )}
-            <div className="flex justify-between text-base font-extrabold text-slate-900 pt-3 border-t border-slate-200">
+            <div className="flex justify-between text-base font-extrabold text-slate-900 pt-3 border-t border-slate-100">
               <span>Total à payer</span>
               <span className="text-emerald-700">{formatPrice(grandTotal)}</span>
             </div>
           </div>
 
           {/* Badges de Réassurance UberEats */}
-          <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-2 text-[11px] text-slate-600">
+          <div className="p-4 rounded-2xl bg-slate-50 border border-slate-100 space-y-2 text-[11px] text-slate-600">
             <div className="flex items-center gap-2">
               <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
               <span>Paiement sécurisé par <strong>{currentOp.name}</strong></span>
@@ -478,7 +478,7 @@ export function CheckoutForm() {
       {/* Modal Interactive USSD Push Simulation (Expérience Mobile Money) */}
       {ussdStep !== "idle" && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-xs animate-in fade-in duration-200">
-          <div className="bg-white border border-slate-200 rounded-3xl p-8 max-w-md w-full shadow-xl text-center space-y-6">
+          <div className="bg-white border border-slate-100 rounded-3xl p-8 max-w-md w-full shadow-2xl text-center space-y-6">
             {ussdStep === "pushing" && (
               <div className="space-y-4">
                 <div className="w-16 h-16 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center mx-auto">
@@ -493,7 +493,7 @@ export function CheckoutForm() {
 
             {ussdStep === "waiting_pin" && (
               <div className="space-y-4">
-                <div className="w-16 h-16 rounded-full bg-amber-50 text-amber-600 flex items-center justify-center mx-auto border border-amber-200 animate-bounce">
+                <div className="w-16 h-16 rounded-full bg-amber-50 text-amber-600 flex items-center justify-center mx-auto border border-amber-100 animate-bounce">
                   <Smartphone className="w-8 h-8" />
                 </div>
                 <h3 className="text-lg font-bold text-slate-900">Validation USSD requise</h3>
@@ -502,7 +502,7 @@ export function CheckoutForm() {
                   <strong className="text-slate-900">code PIN secret</strong> pour valider le montant de{" "}
                   <strong className="text-emerald-700">{formatPrice(grandTotal)}</strong>.
                 </p>
-                <div className="py-2 px-4 bg-slate-50 rounded-xl border border-slate-200 text-[11px] font-mono text-slate-700 inline-block">
+                <div className="py-2 px-4 bg-slate-50 rounded-xl border border-slate-100 text-[11px] font-mono text-slate-700 inline-block">
                   Opérateur : {currentOp.name} • Haut-Katanga
                 </div>
               </div>
@@ -510,14 +510,14 @@ export function CheckoutForm() {
 
             {ussdStep === "confirmed" && confirmedTransaction && (
               <div className="space-y-4">
-                <div className="w-16 h-16 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center mx-auto border border-emerald-200">
+                <div className="w-16 h-16 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center mx-auto border border-emerald-100">
                   <CheckCircle2 className="w-8 h-8 text-emerald-600" />
                 </div>
                 <h3 className="text-lg font-bold text-slate-900">Paiement Mobile Money validé !</h3>
                 <p className="text-xs text-slate-500">
                   Votre commande a été transmise au restaurant avec succès.
                 </p>
-                <div className="p-4 bg-emerald-50/70 border border-emerald-200 rounded-2xl text-left space-y-1.5 text-xs">
+                <div className="p-4 bg-emerald-50/70 border border-emerald-100 rounded-2xl text-left space-y-1.5 text-xs">
                   <div className="flex justify-between text-slate-600">
                     <span>Référence :</span>
                     <span className="font-mono font-bold text-slate-900">{confirmedTransaction.ref}</span>

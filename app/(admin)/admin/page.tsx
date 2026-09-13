@@ -39,10 +39,10 @@ export default async function AdminOverviewPage() {
       {/* KPI Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {/* GMV Total */}
-        <div className="bg-white border border-slate-200 rounded-2xl p-5 space-y-2 shadow-xs">
+        <div className="bg-white border border-slate-100 rounded-2xl p-5 space-y-2 shadow-2xs">
           <div className="flex items-center justify-between text-slate-500">
             <span className="text-xs font-semibold">Volume d&apos;affaires (GMV)</span>
-            <div className="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center border border-emerald-200">
+            <div className="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center border border-emerald-100">
               <TrendingUp className="w-4 h-4" />
             </div>
           </div>
@@ -53,10 +53,10 @@ export default async function AdminOverviewPage() {
         </div>
 
         {/* Commissions Linki */}
-        <div className="bg-white border border-slate-200 rounded-2xl p-5 space-y-2 shadow-xs">
+        <div className="bg-white border border-slate-100 rounded-2xl p-5 space-y-2 shadow-2xs">
           <div className="flex items-center justify-between text-slate-500">
             <span className="text-xs font-semibold">Revenus Commissions Linki</span>
-            <div className="w-8 h-8 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center border border-purple-200">
+            <div className="w-8 h-8 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center border border-purple-100">
               <DollarSign className="w-4 h-4" />
             </div>
           </div>
@@ -67,10 +67,10 @@ export default async function AdminOverviewPage() {
         </div>
 
         {/* Restaurants Partenaires */}
-        <div className="bg-white border border-slate-200 rounded-2xl p-5 space-y-2 shadow-xs">
+        <div className="bg-white border border-slate-100 rounded-2xl p-5 space-y-2 shadow-2xs">
           <div className="flex items-center justify-between text-slate-500">
             <span className="text-xs font-semibold">Restaurants Actifs</span>
-            <div className="w-8 h-8 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center border border-amber-200">
+            <div className="w-8 h-8 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center border border-amber-100">
               <Store className="w-4 h-4" />
             </div>
           </div>
@@ -79,10 +79,10 @@ export default async function AdminOverviewPage() {
         </div>
 
         {/* Livreurs Actifs */}
-        <div className="bg-white border border-slate-200 rounded-2xl p-5 space-y-2 shadow-xs">
+        <div className="bg-white border border-slate-100 rounded-2xl p-5 space-y-2 shadow-2xs">
           <div className="flex items-center justify-between text-slate-500">
             <span className="text-xs font-semibold">Livreurs Partenaires</span>
-            <div className="w-8 h-8 rounded-lg bg-sky-50 text-sky-600 flex items-center justify-center border border-sky-200">
+            <div className="w-8 h-8 rounded-lg bg-sky-50 text-sky-600 flex items-center justify-center border border-sky-100">
               <Bike className="w-4 h-4" />
             </div>
           </div>
@@ -95,9 +95,9 @@ export default async function AdminOverviewPage() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
         <Link
           href="/admin/validations"
-          className="bg-white border border-slate-200 hover:border-amber-400 hover:shadow-md rounded-2xl p-6 space-y-3 transition-all group shadow-2xs"
+          className="bg-white border border-slate-100 hover:border-amber-400 hover:shadow-md rounded-2xl p-6 space-y-3 transition-all group shadow-2xs"
         >
-          <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center border border-amber-200">
+          <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center border border-amber-100">
             <UserCheck className="w-5 h-5" />
           </div>
           <h3 className="text-base font-bold text-slate-900 group-hover:text-amber-700 transition-colors">
@@ -110,9 +110,9 @@ export default async function AdminOverviewPage() {
 
         <Link
           href="/admin/restaurants"
-          className="bg-white border border-slate-200 hover:border-purple-400 hover:shadow-md rounded-2xl p-6 space-y-3 transition-all group shadow-2xs"
+          className="bg-white border border-slate-100 hover:border-purple-400 hover:shadow-md rounded-2xl p-6 space-y-3 transition-all group shadow-2xs"
         >
-          <div className="w-10 h-10 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center border border-purple-200">
+          <div className="w-10 h-10 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center border border-purple-100">
             <Store className="w-5 h-5" />
           </div>
           <h3 className="text-base font-bold text-slate-900 group-hover:text-purple-700 transition-colors">
@@ -125,9 +125,9 @@ export default async function AdminOverviewPage() {
 
         <Link
           href="/admin/orders"
-          className="bg-white border border-slate-200 hover:border-sky-400 hover:shadow-md rounded-2xl p-6 space-y-3 transition-all group shadow-2xs"
+          className="bg-white border border-slate-100 hover:border-sky-400 hover:shadow-md rounded-2xl p-6 space-y-3 transition-all group shadow-2xs"
         >
-          <div className="w-10 h-10 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center border border-sky-200">
+          <div className="w-10 h-10 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center border border-sky-100">
             <ShoppingBag className="w-5 h-5" />
           </div>
           <h3 className="text-base font-bold text-slate-900 group-hover:text-sky-700 transition-colors">
