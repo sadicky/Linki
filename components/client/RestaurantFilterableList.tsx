@@ -119,13 +119,13 @@ export function RestaurantFilterableList({ initialRestaurants }: RestaurantFilte
               key={cat.label}
               type="button"
               onClick={() => setSelectedCategory(cat.label)}
-              className={`px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all cursor-pointer flex items-center gap-1.5 ${
+              className={`px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap transition-all cursor-pointer flex items-center gap-1.5 ${
                 isSelected
-                  ? "bg-slate-950 text-white shadow-xs scale-102"
+                  ? "bg-emerald-600 text-white shadow-xs"
                   : "bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 hover:border-slate-300"
               }`}
             >
-              {cat.icon && <cat.icon className="w-3.5 h-3.5 text-amber-400" />}
+              {cat.icon && <cat.icon className={`w-3.5 h-3.5 ${isSelected ? "text-amber-200" : "text-amber-500"}`} />}
               <span>{cat.label}</span>
             </button>
           );

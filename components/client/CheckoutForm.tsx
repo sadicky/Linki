@@ -174,6 +174,9 @@ export function CheckoutForm() {
 
       const { orderId, codePin } = orderRes.data;
 
+      // Vider immédiatement le panier dès la création réussie de la commande
+      clearCart();
+
       // 2. Simuler l'attente du code PIN sur le téléphone (UX UberEats)
       setUssdStep("waiting_pin");
 
@@ -198,7 +201,6 @@ export function CheckoutForm() {
           codePin,
         });
         setUssdStep("confirmed");
-        clearCart();
 
         // Redirection après 2 secondes vers le tracker en direct
         setTimeout(() => {

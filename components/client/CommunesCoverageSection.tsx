@@ -63,22 +63,22 @@ export function CommunesCoverageSection() {
           </div>
         ))}
 
-        {/* Carte info livraison personnalisée */}
-        <div className="p-4 rounded-2xl bg-gradient-to-br from-emerald-600 to-teal-700 text-white flex flex-col justify-between space-y-3 shadow-sm">
+        {/* Carte info livraison personnalisée (Clean White Card) */}
+        <div className="p-4 rounded-2xl bg-emerald-50/70 border border-emerald-200 text-slate-900 flex flex-col justify-between space-y-3 shadow-2xs">
           <div className="space-y-1">
-            <span className="text-[10px] font-black uppercase tracking-wider text-emerald-200">
+            <span className="text-[10px] font-black uppercase tracking-wider text-emerald-800 bg-emerald-100/80 px-2 py-0.5 rounded">
               Autre secteur ?
             </span>
-            <h3 className="text-xs font-bold text-white leading-snug">
+            <h3 className="text-xs font-bold text-slate-900 leading-snug">
               Entreprises, mines & sites périphériques
             </h3>
-            <p className="text-[11px] text-emerald-100/90 leading-relaxed">
-              Nous livrons aussi vos plateaux déjeuners sur commande groupée.
+            <p className="text-[11px] text-slate-600 leading-relaxed">
+              Nous livrons aussi vos plateaux déjeuners et cocktails sur commande groupée.
             </p>
           </div>
 
-          <div className="flex items-center gap-1 text-[11px] font-bold text-white bg-white/15 px-2.5 py-1 rounded-lg w-fit">
-            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-300" />
+          <div className="flex items-center gap-1 text-[11px] font-bold text-emerald-800 bg-white border border-emerald-200 px-2.5 py-1 rounded-lg w-fit shadow-2xs">
+            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
             <span>Service Entreprise Linki</span>
           </div>
         </div>

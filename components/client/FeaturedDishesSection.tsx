@@ -85,9 +85,9 @@ export function FeaturedDishesSection({ dishes }: FeaturedDishesSectionProps) {
                   </div>
                 )}
 
-                {/* Tag Spécialité */}
-                <div className="absolute top-3 left-3 bg-slate-950/80 backdrop-blur-xs text-white text-[11px] font-bold px-2.5 py-1 rounded-lg border border-white/10 shadow-xs flex items-center gap-1">
-                  <Sparkles className="w-3 h-3 text-amber-400" />
+                {/* Tag Spécialité (Light & Clean) */}
+                <div className="absolute top-3 left-3 bg-white/95 backdrop-blur-md text-emerald-800 text-[11px] font-bold px-2.5 py-1 rounded-lg border border-emerald-200/90 shadow-xs flex items-center gap-1">
+                  <Sparkles className="w-3 h-3 text-amber-500" />
                   <span>{dish.tag || "Spécialité Lushoise"}</span>
                 </div>
 
@@ -111,20 +111,20 @@ export function FeaturedDishesSection({ dishes }: FeaturedDishesSectionProps) {
                 {/* Prix et Bouton d'ajout rapide */}
                 <div className="pt-3 border-t border-slate-100 flex items-center justify-between gap-2">
                   <div>
-                    <div className="text-base font-black text-slate-950">
+                    <div className="text-base font-black text-slate-900">
                       {dish.prix.toLocaleString("fr-FR")}{" "}
                       <span className="text-xs font-bold text-emerald-600">CDF</span>
                     </div>
-                    <div className="text-[10px] text-slate-400">TVA comprise</div>
+                    <div className="text-[10px] text-slate-400">Prix direct restaurant</div>
                   </div>
 
                   <button
                     type="button"
                     onClick={() => handleQuickAdd(dish)}
-                    className={`flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold transition-all active:scale-95 shadow-xs cursor-pointer ${
+                    className={`flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold transition-all active:scale-95 shadow-xs cursor-pointer ${
                       isAdded
                         ? "bg-emerald-600 text-white"
-                        : "bg-slate-900 hover:bg-emerald-600 text-white"
+                        : "bg-emerald-600 hover:bg-emerald-700 text-white"
                     }`}
                   >
                     {isAdded ? (
