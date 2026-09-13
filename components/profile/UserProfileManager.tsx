@@ -15,10 +15,9 @@ import {
   Calendar,
   Save,
   Loader2,
-  Sparkles,
   ArrowRight,
 } from "lucide-react";
-import { updateUserProfile, switchDemoRole, type UserProfileDetails } from "@/lib/actions/auth.actions";
+import { updateUserProfile, type UserProfileDetails } from "@/lib/actions/auth.actions";
 import type { UserRole } from "@/lib/supabase/types";
 
 interface UserProfileManagerProps {
@@ -119,12 +118,6 @@ export function UserProfileManager({ initialData }: UserProfileManagerProps) {
           message: res.error || "Une erreur est survenue lors de la mise à jour.",
         });
       }
-    });
-  };
-
-  const handleRoleSwitch = (newRole: UserRole) => {
-    startTransition(async () => {
-      await switchDemoRole(newRole);
     });
   };
 
@@ -404,46 +397,6 @@ export function UserProfileManager({ initialData }: UserProfileManagerProps) {
           </button>
         </div>
       </form>
-
-      {/* Testeur de rôles pour la démonstration */}
-      <div className="bg-slate-50 border border-slate-200/80 rounded-3xl p-6 space-y-4">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Sparkles className="w-4 h-4 text-amber-500" />
-            <h3 className="text-xs font-bold text-slate-900">Tester le profil avec un autre rôle</h3>
-          </div>
-          <span className="text-[10px] text-slate-500">Bascule instantanée de session</span>
-        </div>
-
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
-          {(["client", "restaurant", "livreur", "admin"] as UserRole[]).map((r) => {
-            const meta = ROLE_META[r];
-            const isCurrent = profile.role === r;
-
-            return (
-              <button
-                key={r}
-                onClick={() => handleRoleSwitch(r)}
-                disabled={isPending || isCurrent}
-                className={`p-3 rounded-2xl border text-left flex flex-col justify-between gap-1 transition-all cursor-pointer ${
-                  isCurrent
-                    ? "bg-white border-emerald-500 shadow-xs ring-2 ring-emerald-100"
-                    : "bg-white/80 hover:bg-white border-slate-200 hover:border-slate-300"
-                }`}
-              >
-                <div className="flex items-center justify-between">
-                  <meta.icon className={`w-4 h-4 ${meta.color}`} />
-                  {isCurrent && <span className="text-[9px] font-bold text-emerald-600">Actuel</span>}
-                </div>
-                <div>
-                  <span className="text-xs font-bold text-slate-800 capitalize">{r}</span>
-                  <p className="text-[10px] text-slate-500 leading-tight line-clamp-1">{meta.label}</p>
-                </div>
-              </button>
-            );
-          })}
-        </div>
-      </div>
     </div>
   );
 }
