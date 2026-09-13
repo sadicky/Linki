@@ -62,7 +62,7 @@ export default function LoginPage() {
         </div>
 
         {/* Card Formulaire */}
-        <div className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-sm space-y-6">
+        <div className="bg-white border border-slate-100 rounded-3xl p-6 sm:p-8 shadow-sm space-y-6">
           <div className="border-b border-slate-100 pb-4">
             <h2 className="text-lg font-bold text-slate-900">Connexion sécurisée</h2>
             <p className="text-xs text-slate-500 mt-0.5">
@@ -83,7 +83,7 @@ export default function LoginPage() {
                   onChange={(e) => setEmail(e.target.value)}
                   required
                   placeholder="nom@exemple.cd"
-                  className="w-full bg-white border border-slate-200 rounded-xl pl-10 pr-4 py-2.5 text-xs text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 transition-all"
+                  className="w-full bg-slate-50 border border-slate-100 rounded-xl pl-10 pr-4 py-2.5 text-xs text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 transition-all"
                 />
               </div>
             </div>
@@ -102,7 +102,7 @@ export default function LoginPage() {
                   onChange={(e) => setPassword(e.target.value)}
                   required
                   placeholder="Votre mot de passe"
-                  className="w-full bg-white border border-slate-200 rounded-xl pl-10 pr-10 py-2.5 text-xs text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 transition-all"
+                  className="w-full bg-slate-50 border border-slate-100 rounded-xl pl-10 pr-10 py-2.5 text-xs text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 transition-all"
                 />
                 <button
                   type="button"
@@ -115,7 +115,7 @@ export default function LoginPage() {
             </div>
 
             {errorMsg && (
-              <div className="p-3 rounded-xl bg-rose-50 border border-rose-200 text-xs text-rose-700 font-medium">
+              <div className="p-3 rounded-xl bg-rose-50 border border-rose-100 text-xs text-rose-700 font-medium">
                 {errorMsg}
               </div>
             )}
@@ -139,7 +139,63 @@ export default function LoginPage() {
             </button>
           </form>
 
-          <div className="pt-2 flex items-center justify-center gap-2 text-[11px] text-slate-400">
+          {/* Accès Démo Rapide par Rôle */}
+          <div className="pt-4 border-t border-slate-100 space-y-2">
+            <span className="text-[11px] font-bold text-slate-500 block">
+              Connexion rapide par rôle (1 clic) :
+            </span>
+            <div className="grid grid-cols-2 gap-2">
+              <button
+                type="button"
+                onClick={() => {
+                  setEmail("client@linki.cd");
+                  setPassword("pass123");
+                }}
+                className="p-2 rounded-xl text-left bg-emerald-50/70 hover:bg-emerald-100/70 border border-emerald-100 transition-colors cursor-pointer"
+              >
+                <span className="text-[11px] font-bold text-emerald-800 block">👤 Client</span>
+                <span className="text-[10px] text-emerald-600">Partie Client</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => {
+                  setEmail("resto@linki.cd");
+                  setPassword("pass123");
+                }}
+                className="p-2 rounded-xl text-left bg-amber-50/70 hover:bg-amber-100/70 border border-amber-100 transition-colors cursor-pointer"
+              >
+                <span className="text-[11px] font-bold text-amber-800 block">🍽️ Restaurant</span>
+                <span className="text-[10px] text-amber-600">Fenêtre Cuisine</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => {
+                  setEmail("livreur@linki.cd");
+                  setPassword("pass123");
+                }}
+                className="p-2 rounded-xl text-left bg-sky-50/70 hover:bg-sky-100/70 border border-sky-100 transition-colors cursor-pointer"
+              >
+                <span className="text-[11px] font-bold text-sky-800 block">🛵 Livreur</span>
+                <span className="text-[10px] text-sky-600">Fenêtre Courses</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => {
+                  setEmail("admin@linki.cd");
+                  setPassword("pass123");
+                }}
+                className="p-2 rounded-xl text-left bg-purple-50/70 hover:bg-purple-100/70 border border-purple-100 transition-colors cursor-pointer"
+              >
+                <span className="text-[11px] font-bold text-purple-800 block">🛡️ Super Admin</span>
+                <span className="text-[10px] text-purple-600">Fenêtre Admin</span>
+              </button>
+            </div>
+          </div>
+
+          <div className="pt-1 flex items-center justify-center gap-2 text-[11px] text-slate-400">
             <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
             <span>Connexion chiffrée SSL 256-bit</span>
           </div>

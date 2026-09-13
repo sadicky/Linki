@@ -171,7 +171,7 @@ export function RestaurantMenuManager({
         <div className="flex items-center gap-2.5">
           <button
             onClick={() => setShowCategoryModal(true)}
-            className="flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-bold bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 shadow-2xs transition-colors cursor-pointer"
+            className="flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-bold bg-white hover:bg-slate-50 text-slate-700 border border-slate-100 shadow-2xs transition-colors cursor-pointer"
           >
             <FolderPlus className="w-4 h-4 text-amber-600" />
             <span>Nouvelle catégorie</span>
@@ -192,7 +192,7 @@ export function RestaurantMenuManager({
         {categories.map((cat) => (
           <div
             key={cat.id}
-            className="group flex items-center gap-2 bg-white border border-slate-200 px-3.5 py-1.5 rounded-xl text-xs font-semibold text-slate-800 whitespace-nowrap shadow-2xs"
+            className="group flex items-center gap-2 bg-white border border-slate-100 px-3.5 py-1.5 rounded-xl text-xs font-semibold text-slate-800 whitespace-nowrap shadow-2xs"
           >
             <span>{cat.nom}</span>
             <button
@@ -214,7 +214,7 @@ export function RestaurantMenuManager({
           return (
             <div
               key={dish.id}
-              className="bg-white border border-slate-200 rounded-2xl p-4 flex flex-col justify-between gap-3 shadow-2xs hover:border-slate-300 transition-all"
+              className="bg-white border border-slate-100 rounded-2xl p-4 flex flex-col justify-between gap-3 shadow-2xs hover:border-slate-200 transition-all"
             >
               <div className="flex gap-3">
                 {dish.image_url ? (
@@ -224,7 +224,7 @@ export function RestaurantMenuManager({
                     className="w-20 h-20 rounded-xl object-cover bg-slate-100 shrink-0 border border-slate-100"
                   />
                 ) : (
-                  <div className="w-20 h-20 rounded-xl bg-slate-100 flex items-center justify-center text-slate-400 shrink-0 border border-slate-200">
+                  <div className="w-20 h-20 rounded-xl bg-slate-100 flex items-center justify-center text-slate-400 shrink-0 border border-slate-100">
                     <ImageIcon className="w-6 h-6" />
                   </div>
                 )}
@@ -299,7 +299,7 @@ export function RestaurantMenuManager({
       {/* Modal Ajout Catégorie */}
       {showCategoryModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/30 backdrop-blur-xs">
-          <div className="bg-white border border-slate-200 rounded-2xl p-6 w-full max-w-sm space-y-4 shadow-xl">
+          <div className="bg-white border border-slate-100 rounded-2xl p-6 w-full max-w-sm space-y-4 shadow-xl">
             <h3 className="text-base font-bold text-slate-900">Nouvelle catégorie de menu</h3>
             <form onSubmit={handleCreateCategory} className="space-y-4 text-xs">
               <div>
@@ -339,7 +339,7 @@ export function RestaurantMenuManager({
       {/* Modal Ajout / Modification Plat */}
       {showItemModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/30 backdrop-blur-xs">
-          <div className="bg-white border border-slate-200 rounded-3xl p-6 w-full max-w-md space-y-4 shadow-xl">
+          <div className="bg-white border border-slate-100 rounded-3xl p-6 w-full max-w-md space-y-4 shadow-xl">
             <h3 className="text-base font-bold text-slate-900">
               {editingItem ? "Modifier le plat" : "Ajouter un plat au menu"}
             </h3>

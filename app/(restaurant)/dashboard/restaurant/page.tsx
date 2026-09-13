@@ -38,10 +38,10 @@ export default async function RestaurantDashboardPage() {
       {/* KPI Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {/* CA Jour */}
-        <div className="bg-white border border-slate-200 rounded-2xl p-5 space-y-2 shadow-xs">
+        <div className="bg-white border border-slate-100 rounded-2xl p-5 space-y-2 shadow-2xs">
           <div className="flex items-center justify-between text-slate-500">
             <span className="text-xs font-semibold">CA Aujourd&apos;hui</span>
-            <div className="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center border border-emerald-200">
+            <div className="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center border border-emerald-100">
               <TrendingUp className="w-4 h-4" />
             </div>
           </div>
@@ -52,10 +52,10 @@ export default async function RestaurantDashboardPage() {
         </div>
 
         {/* CA Semaine */}
-        <div className="bg-white border border-slate-200 rounded-2xl p-5 space-y-2 shadow-xs">
+        <div className="bg-white border border-slate-100 rounded-2xl p-5 space-y-2 shadow-2xs">
           <div className="flex items-center justify-between text-slate-500">
             <span className="text-xs font-semibold">CA Hebdomadaire</span>
-            <div className="w-8 h-8 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center border border-amber-200">
+            <div className="w-8 h-8 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center border border-amber-100">
               <DollarSign className="w-4 h-4" />
             </div>
           </div>
@@ -66,10 +66,10 @@ export default async function RestaurantDashboardPage() {
         </div>
 
         {/* Commandes traitées */}
-        <div className="bg-white border border-slate-200 rounded-2xl p-5 space-y-2 shadow-xs">
+        <div className="bg-white border border-slate-100 rounded-2xl p-5 space-y-2 shadow-2xs">
           <div className="flex items-center justify-between text-slate-500">
             <span className="text-xs font-semibold">Commandes totales</span>
-            <div className="w-8 h-8 rounded-lg bg-sky-50 text-sky-600 flex items-center justify-center border border-sky-200">
+            <div className="w-8 h-8 rounded-lg bg-sky-50 text-sky-600 flex items-center justify-center border border-sky-100">
               <ShoppingBag className="w-4 h-4" />
             </div>
           </div>
@@ -78,10 +78,10 @@ export default async function RestaurantDashboardPage() {
         </div>
 
         {/* Revenu Net / Commission */}
-        <div className="bg-white border border-slate-200 rounded-2xl p-5 space-y-2 shadow-xs">
+        <div className="bg-white border border-slate-100 rounded-2xl p-5 space-y-2 shadow-2xs">
           <div className="flex items-center justify-between text-slate-500">
             <span className="text-xs font-semibold">Reversé Net</span>
-            <div className="w-8 h-8 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center border border-purple-200">
+            <div className="w-8 h-8 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center border border-purple-100">
               <Percent className="w-4 h-4" />
             </div>
           </div>
@@ -95,7 +95,7 @@ export default async function RestaurantDashboardPage() {
       </div>
 
       {/* Top Plats les plus vendus */}
-      <div className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 space-y-4 shadow-xs">
+      <div className="bg-white border border-slate-100 rounded-3xl p-6 sm:p-8 space-y-4 shadow-2xs">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Flame className="w-5 h-5 text-amber-500" />
