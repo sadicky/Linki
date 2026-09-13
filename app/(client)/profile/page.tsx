@@ -14,6 +14,17 @@ export default async function ProfilePage() {
     redirect("/login?redirect=/profile");
   }
 
+  // Rediriger chaque utilisateur vers sa propre fenêtre de profil avec son propre navbar
+  if (profileDetails.profile.role === "admin") {
+    redirect("/admin/profile");
+  }
+  if (profileDetails.profile.role === "restaurant") {
+    redirect("/dashboard/restaurant/profile");
+  }
+  if (profileDetails.profile.role === "livreur") {
+    redirect("/dashboard/livreur/profile");
+  }
+
   return (
     <div className="min-h-screen bg-slate-50/50 py-8 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto space-y-6">

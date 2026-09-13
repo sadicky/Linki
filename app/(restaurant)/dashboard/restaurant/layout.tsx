@@ -66,7 +66,7 @@ export default async function RestaurantDashboardLayout({
             {/* Déconnexion & Profil */}
             <div className="flex items-center gap-2 pl-2 border-l border-slate-100">
               <Link
-                href="/profile"
+                href="/dashboard/restaurant/profile"
                 className="text-xs font-semibold text-amber-700 hover:text-amber-900 bg-amber-50 hover:bg-amber-100 px-3 py-1.5 rounded-xl border border-amber-200 transition-colors"
               >
                 Mon Profil
