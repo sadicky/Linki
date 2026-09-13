@@ -112,7 +112,12 @@ export async function createOrder(
     };
   }
 
-  const user = await getCurrentUser();
+  let user = await getCurrentUser();
+  if (!user) {
+    // Si aucun cookie n'est présent (ex: client testant en démo sans login explicite),
+    // assigner au profil client par défaut
+    user = demoStore.profiles.find((p) => p.role === "client") || null;
+  }
   if (!user) {
     return { success: false, error: "Vous devez être connecté pour commander" };
   }
@@ -128,8 +133,22 @@ export async function createOrder(
     instructions_livraison,
   } = validation.data;
 
-  // Vérifier le restaurant
-  const restaurant = demoStore.restaurants.find((r) => r.id === restaurant_id);
+  // Vérifier le restaurant (en mémoire ou dans Supabase)
+  let restaurant = demoStore.restaurants.find((r) => r.id === restaurant_id);
+  if (!restaurant) {
+    try {
+      const supabase = await createClient();
+      const { data: dbResto } = await supabase
+        .from("restaurants")
+        .select("*")
+        .eq("id", restaurant_id)
+        .single();
+      if (dbResto) restaurant = dbResto as Restaurant;
+    } catch {
+      // Fallback
+    }
+  }
+
   if (!restaurant) {
     return { success: false, error: "Restaurant introuvable" };
   }

@@ -3,13 +3,13 @@ import { z } from "zod";
 export const categorySchema = z.object({
   nom: z.string().min(2, "Le nom de la catégorie doit comporter au moins 2 caractères"),
   ordre: z.number().int().default(0),
-  restaurant_id: z.string().uuid("Identifiant de restaurant invalide"),
+  restaurant_id: z.string().min(1, "Identifiant de restaurant invalide"),
 });
 
 export const menuItemSchema = z.object({
-  id: z.string().uuid().optional(),
-  restaurant_id: z.string().uuid("Identifiant de restaurant invalide"),
-  category_id: z.string().uuid().nullable().optional(),
+  id: z.string().min(1).optional(),
+  restaurant_id: z.string().min(1, "Identifiant de restaurant invalide"),
+  category_id: z.string().min(1).nullable().optional(),
   nom: z.string().min(2, "Le nom du plat doit comporter au moins 2 caractères"),
   description: z.string().optional().nullable(),
   prix: z.number().positive("Le prix doit être supérieur à zéro"),

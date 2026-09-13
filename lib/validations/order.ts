@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 export const orderItemInputSchema = z.object({
-  menu_item_id: z.string().uuid("ID de plat invalide"),
+  menu_item_id: z.string().min(1, "ID de plat requis"),
   nom: z.string(),
   quantite: z.number().int().positive("La quantité doit être supérieure à 0"),
   prix_unitaire: z.number().nonnegative(),
@@ -9,7 +9,7 @@ export const orderItemInputSchema = z.object({
 });
 
 export const createOrderSchema = z.object({
-  restaurant_id: z.string().uuid("ID de restaurant invalide"),
+  restaurant_id: z.string().min(1, "ID de restaurant invalide"),
   adresse_livraison: z.string().min(5, "L'adresse de livraison est requise"),
   lat: z.number(),
   lng: z.number(),
@@ -21,7 +21,7 @@ export const createOrderSchema = z.object({
 });
 
 export const updateOrderStatusSchema = z.object({
-  order_id: z.string().uuid(),
+  order_id: z.string().min(1, "ID de commande requis"),
   statut: z.enum([
     "en_attente",
     "acceptee",
@@ -34,8 +34,8 @@ export const updateOrderStatusSchema = z.object({
 });
 
 export const reviewSchema = z.object({
-  order_id: z.string().uuid(),
-  restaurant_id: z.string().uuid(),
+  order_id: z.string().min(1, "ID de commande requis"),
+  restaurant_id: z.string().min(1, "ID de restaurant requis"),
   note: z.number().int().min(1).max(5),
   commentaire: z.string().optional().nullable(),
 });

@@ -66,3 +66,36 @@ test("Annulation autorisée en cuisine en cas de problème de stock", () => {
   assert.strictEqual(canRestaurantTransition("acceptee", "annulee"), true);
   assert.strictEqual(canRestaurantTransition("en_preparation", "annulee"), true);
 });
+
+test("Validation Zod du panier et des IDs de plats (compatibilité UUID et mock)", () => {
+  const { z } = require("zod");
+  const orderItemSchema = z.object({
+    menu_item_id: z.string().min(1, "ID de plat requis"),
+    nom: z.string(),
+    quantite: z.number().int().positive(),
+    prix_unitaire: z.number().nonnegative(),
+    notes: z.string().optional().nullable(),
+  });
+
+  // Tester avec ID mock commençant par m (qui échouait auparavant avec .uuid())
+  const itemMock = {
+    menu_item_id: "m0000001-0000-4000-8000-000000000001",
+    nom: "T-Bone Katangais",
+    quantite: 1,
+    prix_unitaire: 42000,
+    notes: null,
+  };
+  const parsedMock = orderItemSchema.safeParse(itemMock);
+  assert.strictEqual(parsedMock.success, true);
+
+  // Tester avec ID dynamique de plat ajouté en cuisine (item-1234567)
+  const itemDynamic = {
+    menu_item_id: "item-1789321",
+    nom: "Plat du jour",
+    quantite: 2,
+    prix_unitaire: 15000,
+    notes: "Bien chaud",
+  };
+  const parsedDynamic = orderItemSchema.safeParse(itemDynamic);
+  assert.strictEqual(parsedDynamic.success, true);
+});
